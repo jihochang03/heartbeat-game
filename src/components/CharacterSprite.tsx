@@ -380,30 +380,26 @@ function ChibiSvg({ who, face, className }: Props) {
       {sinae ? (
         <g>
           <path
-            d="M22 112 C10 172 18 236 32 262 C46 272 62 254 62 234 L138 234 C138 254 154 272 168 262 C182 236 190 172 178 112 C174 38 130 16 100 16 C70 16 26 38 22 112Z"
+            d="M20 108 C8 172 16 240 30 266 C44 276 60 258 62 238 L138 238 C140 258 156 276 170 266 C184 240 192 172 180 108 C176 36 132 10 100 10 C68 10 24 36 20 108Z"
             fill={hairFill}
             stroke={hairLine}
             strokeWidth="1.2"
           />
-          <g fill="none" stroke={strand} strokeWidth="1.1" opacity="0.55" strokeLinecap="round">
-            <path d="M34 130 C26 180 32 226 40 252" />
-            <path d="M46 140 C40 186 46 226 52 246" />
-            <path d="M166 130 C174 180 168 226 160 252" />
-            <path d="M154 140 C160 186 154 226 148 246" />
+          <g fill="none" stroke={strand} strokeWidth="1.1" opacity="0.5" strokeLinecap="round">
+            <path d="M28 150 C22 196 28 240 38 262" />
+            <path d="M172 150 C178 196 172 240 162 262" />
+            <path d="M70 200 C66 224 66 240 70 252" />
+            <path d="M130 200 C134 224 134 240 130 252" />
           </g>
         </g>
       ) : (
         <g>
           <path
-            d="M26 112 C18 164 26 196 48 208 C60 212 66 200 64 190 L136 190 C134 200 140 212 152 208 C174 196 182 164 174 112 C170 38 130 16 100 16 C70 16 30 38 26 112Z"
+            d="M22 108 C14 160 22 196 44 210 C58 214 64 202 62 192 L138 192 C136 202 142 214 156 210 C178 196 186 160 178 108 C174 36 132 10 100 10 C68 10 26 36 22 108Z"
             fill={hairFill}
             stroke={hairLine}
             strokeWidth="1.2"
           />
-          <g fill="none" stroke={hi} strokeWidth="1.1" opacity="0.45" strokeLinecap="round">
-            <path d="M36 130 C30 160 36 188 46 200" />
-            <path d="M164 130 C170 160 164 188 154 200" />
-          </g>
         </g>
       )}
 
@@ -473,41 +469,40 @@ function ChibiSvg({ who, face, className }: Props) {
       <circle cx="168" cy="130" r="2.4" fill={sinae ? '#eef3f6' : '#f3dca8'} stroke={sinae ? '#b8c4cc' : '#cfae62'} strokeWidth="0.8" />
 
       {/* 볼터치 */}
-      <ellipse cx="50" cy="134" rx="17" ry="10" fill="url(#blushG)" opacity={blushOp} />
-      <ellipse cx="150" cy="134" rx="17" ry="10" fill="url(#blushG)" opacity={blushOp} />
+      <ellipse cx="58" cy="136" rx="15" ry="9" fill="url(#blushG)" opacity={blushOp} />
+      <ellipse cx="142" cy="136" rx="15" ry="9" fill="url(#blushG)" opacity={blushOp} />
       {def.blush === 2 && (
         <g stroke="#f58a9a" strokeWidth="1.4" strokeLinecap="round" opacity="0.7">
-          <path d="M42 132 l3 5 M48 131 l3 5 M54 130 l3 5" />
-          <path d="M146 130 l3 5 M152 131 l3 5 M158 132 l3 5" />
+          <path d="M52 134 l3 5 M58 133 l3 5 M64 132 l3 5" />
+          <path d="M136 132 l3 5 M142 133 l3 5 M148 134 l3 5" />
         </g>
       )}
 
       <EyesSvg type={def.eyes} who={who} />
       <MouthSvg type={def.mouth} />
 
-      {/* ---------- 앞머리 ---------- */}
+      {/* ---------- 앞머리 + 옆머리 (하나로 이어진 모양) ---------- */}
       {sinae ? (
         <g>
-          {/* 풀 뱅 + 사이사이 틈이 있는 앞머리 */}
           <path
-            d="M24 116 C18 48 62 14 100 14 C140 14 184 48 176 116 C172 104 166 94 158 86 C154 94 146 96 140 90 C134 84 128 80 122 76 C118 88 108 92 100 86 C94 92 84 90 78 84 C72 80 66 82 62 78 C56 90 44 104 24 116Z"
+            d="M38 226 C20 190 16 130 22 100 C28 40 66 12 100 12 C134 12 172 40 178 100 C184 130 180 190 162 226 C156 206 150 176 150 140 C150 118 152 100 156 92 Q150 88 142 86 Q134 84 128 76 Q120 84 112 86 Q106 84 104 74 Q98 84 90 88 Q82 86 76 78 Q70 86 60 88 Q50 90 44 92 C48 100 50 118 50 140 C50 176 44 206 38 226Z"
             fill={hairFill}
             stroke={hairLine}
             strokeWidth="1.2"
             strokeLinejoin="round"
           />
-          <g fill="none" stroke={strand} strokeWidth="1.1" opacity="0.6" strokeLinecap="round">
-            <path d="M100 14 C92 40 84 62 78 84" />
-            <path d="M100 14 C108 40 116 60 122 76" />
-            <path d="M60 24 C52 52 44 84 34 108" />
-            <path d="M140 24 C148 52 158 84 168 108" />
+          <g fill="none" stroke={strand} strokeWidth="1.1" opacity="0.55" strokeLinecap="round">
+            <path d="M100 12 C98 36 98 58 104 74" />
+            <path d="M84 16 C76 40 72 62 76 78" />
+            <path d="M118 16 C124 40 126 60 128 76" />
+            <path d="M34 110 C30 150 32 190 40 218" />
+            <path d="M42 100 C40 140 42 176 46 204" />
+            <path d="M166 110 C170 150 168 190 160 218" />
+            <path d="M158 100 C160 140 158 176 154 204" />
           </g>
-          <path d="M62 34 Q84 22 112 28" fill="none" stroke="#f3d4c0" strokeWidth="5" strokeLinecap="round" opacity="0.55" />
-          {/* 얼굴을 감싸고 내려오는 긴 옆머리 */}
-          <path d="M24 116 C26 150 26 190 34 224 C46 216 50 190 50 156 C50 140 48 126 46 108Z" fill={hairFill} stroke={hairLine} strokeWidth="1.2" strokeLinejoin="round" />
-          <path d="M176 116 C174 150 174 190 166 224 C154 216 150 190 150 156 C150 140 152 126 154 108Z" fill={hairFill} stroke={hairLine} strokeWidth="1.2" strokeLinejoin="round" />
+          <path d="M52 36 Q80 20 114 24" fill="none" stroke="#f6dcc9" strokeWidth="5" strokeLinecap="round" opacity="0.55" />
           {/* 복숭아 머리핀 */}
-          <g transform="translate(150 46)">
+          <g transform="translate(148 48)">
             <circle r="10" fill="#f9c2c2" stroke="#e39a9f" strokeWidth="1.2" />
             <path d="M0 -9 q7 -7 11 -3.5 q-3.5 6 -11 3.5z" fill="#c9d8b6" stroke="#9fb58c" strokeWidth="1" />
             <ellipse cx="-3.5" cy="-2.5" rx="2.6" ry="4" fill="#fff" opacity="0.6" />
@@ -515,25 +510,22 @@ function ChibiSvg({ who, face, className }: Props) {
         </g>
       ) : (
         <g>
-          {/* 가운데 가르마 단발 */}
           <path
-            d="M26 116 C20 48 64 14 100 14 C136 14 182 48 174 116 C170 100 160 88 146 82 C130 76 112 74 100 66 C88 74 70 76 54 82 C40 88 30 100 26 116Z"
+            d="M46 194 C26 172 20 130 24 100 C30 40 66 12 100 12 C134 12 170 40 176 100 C180 130 174 172 154 194 C150 184 150 160 150 140 C150 118 152 100 156 94 Q140 90 126 82 Q114 76 100 64 Q90 76 74 82 Q60 90 44 94 C48 100 50 118 50 140 C50 160 50 184 46 194Z"
             fill={hairFill}
             stroke={hairLine}
             strokeWidth="1.2"
             strokeLinejoin="round"
           />
-          <g fill="none" stroke={hi} strokeWidth="1.1" opacity="0.55" strokeLinecap="round">
-            <path d="M100 14 L100 64" />
-            <path d="M92 20 C80 40 66 60 48 80" />
-            <path d="M108 20 C120 40 134 60 152 80" />
+          <g fill="none" stroke={hi} strokeWidth="1.1" opacity="0.6" strokeLinecap="round">
+            <path d="M100 12 L100 62" />
+            <path d="M92 18 C82 40 68 62 50 84" />
+            <path d="M108 18 C118 40 132 62 150 84" />
+            <path d="M32 110 C28 140 32 170 44 188" />
+            <path d="M168 110 C172 140 168 170 156 188" />
           </g>
-          <path d="M60 32 Q82 22 98 26" fill="none" stroke="#b3a8c6" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
-          <path d="M102 26 Q120 22 140 32" fill="none" stroke="#b3a8c6" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
-          {/* 얼굴선을 따라 안쪽으로 말리는 옆머리 */}
-          <path d="M26 116 C24 148 28 178 46 196 C58 200 60 186 52 176 C46 160 46 132 50 100Z" fill={hairFill} stroke={hairLine} strokeWidth="1.2" strokeLinejoin="round" />
-          <path d="M174 116 C176 148 172 178 154 196 C142 200 140 186 148 176 C154 160 154 132 150 100Z" fill={hairFill} stroke={hairLine} strokeWidth="1.2" strokeLinejoin="round" />
-          {/* 작은 머리핀 */}
+          <path d="M56 34 Q80 22 98 26" fill="none" stroke="#b9aecb" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
+          <path d="M102 26 Q122 22 144 34" fill="none" stroke="#b9aecb" strokeWidth="5" strokeLinecap="round" opacity="0.5" />
           <g stroke="#e6b3bb" strokeWidth="3" strokeLinecap="round">
             <path d="M138 44 l14 -5" />
             <path d="M140 52 l14 -5" />
