@@ -96,15 +96,17 @@ Y('…', { id: 'e2_a', rush: { next: 'e2_rush' } }),       // 급발진 버튼
 주요 필드: `bg`(배경) `s`/`y`(표정) `effects`(heart·flags·collect·fall) `choices` `branch`(보이지 않는 조건 분기)
 `rush` `thought`(속마음) `minigame` `ending` `fx`(hearts/shake/glow/confetti) `egg` `card`(에피소드 카드)
 
-## 캐릭터 이미지 교체 (팬아트)
+## 캐릭터 일러스트
 
-기본 캐릭터는 특정 배우의 외모를 재현하지 않은 **자체 제작 SVG**입니다.
-`src/assets/characters/` 에 `{인물}-{표정}.png|webp|svg` 파일을 넣으면 해당 표정이 자동으로 이미지로 대체됩니다. 코드 수정은 필요 없습니다.
+`src/assets/characters/` 의 `{인물}-{표정}.webp|png|svg` 파일이 있으면 해당 표정은 **일러스트가 둥근 초상화 카드 형태**로 표시되고,
+없으면 코드로 그린 SVG 캐릭터로 대체됩니다. 코드 수정은 필요 없습니다.
 
-- 인물: `sinae`, `young`
+- 인물: `sinae`(시내), `young`(영)
 - 시내 표정: `smile laugh excited sly tender surprised shy`
 - 영 표정: `smile laugh flutter flustered rush shy tender`
-- 예) `sinae-smile.png`, `young-flutter.png` (없는 표정은 SVG로 표시)
+- 현재 14장 모두 일러스트가 들어 있습니다 (200×300 WebP). 다른 그림으로 바꾸려면 같은 파일명으로 덮어쓰세요.
+- 배경이 투명한 전신/반신 PNG 를 쓰면 카드 테두리 없이 쓰고 싶을 때 `CharacterSprite.tsx` 의 이미지 분기에서 프레임 클래스만 제거하면 됩니다.
+- 일러스트의 저작권은 각 제작자에게 있습니다. 공개 저장소에 올리기 전에 사용 허락을 확인하세요.
 
 ## 테스트
 

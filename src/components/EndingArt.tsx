@@ -74,8 +74,8 @@ export default function EndingArt({ ending, className = '' }: { ending: EndingDe
       )}
 
       {/* 인물 */}
-      <div className="absolute inset-x-0 bottom-0 flex h-[62%] items-end justify-center" style={{ gap: ending.scene === 'hands' || ending.scene === 'tomorrow' ? '-6%' : '2%' }}>
-        <div className="h-full aspect-[200/290]" style={{ height: '88%' }}><CharacterSprite who="young" face={sc.y} className="h-full w-full" /></div>
+      <div className="absolute inset-x-0 bottom-0 flex h-[54%] items-end justify-center px-[3%]" style={{ gap: '3%' }}>
+        <div className="h-full aspect-[200/290]" style={{ height: '90%' }}><CharacterSprite who="young" face={sc.y} className="h-full w-full" /></div>
         <div className="h-full aspect-[200/290]"><CharacterSprite who="sinae" face={sc.s} className="h-full w-full" /></div>
       </div>
       <div className="absolute inset-x-0 bottom-0 h-[6%] bg-[#d9c0b0]" />

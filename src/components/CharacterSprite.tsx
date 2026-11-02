@@ -375,13 +375,16 @@ function findImage(who: string, face: string): string | undefined {
 export default function CharacterSprite({ who, face, className }: Props) {
   const img = findImage(who, face)
   if (img)
+    // 일러스트는 둥근 초상화 카드 형태로 보여준다 (배경이 있는 일러스트도 자연스럽게 어울림)
     return (
-      <img
-        src={img}
-        alt={who === 'sinae' ? '성시내' : '영'}
-        className={`${className ?? ''} object-contain object-bottom`}
-        draggable={false}
-      />
+      <div className={`flex items-end ${className ?? ''}`}>
+        <img
+          src={img}
+          alt={who === 'sinae' ? '성시내' : '영'}
+          className="block h-auto max-h-full w-full rounded-[22px] border-[3px] border-[#76575a] bg-[#faf7f7] object-cover shadow-[0_6px_0_rgba(118,87,90,0.3)]"
+          draggable={false}
+        />
+      </div>
     )
   return <ChibiSvg who={who} face={face} className={className} />
 }
