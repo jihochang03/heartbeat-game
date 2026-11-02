@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@theme {
+  --color-peach: #f5b8b8;
+  --color-softpeach: #ffd1b5;
+  --color-cream: #fff8ef;
+  --color-warm: #fffcf8;
+  --color-rose: #d98b96;
+  --color-cocoa: #76575a;
+  --color-sage: #b9c8a8;
+  --color-deep: #4d3538;
+  --font-display: "Jua", "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-body: "Gowun Dodum", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+:root {
+  --fs: 1;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: var(--font-body);
+  background: #fff3e6;
+  color: var(--color-cocoa);
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* 키보드 포커스 표시 */
+:focus-visible {
+  outline: 3px solid #d98b96;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* ---------- 레트로 버튼 ---------- */
+.vn-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.6rem 1.25rem;
+  border: 3px solid var(--color-cocoa);
+  border-radius: 18px;
+  background: var(--color-warm);
+  color: var(--color-cocoa);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  box-shadow: 0 5px 0 var(--color-cocoa);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s;
+}
+.vn-btn:hover {
+  background: #fff;
+}
+.vn-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--color-cocoa);
+}
+.vn-btn.primary {
+  background: var(--color-peach);
+}
+.vn-btn.primary:hover {
+  background: #f9c6c6;
+}
+.vn-btn.sage {
+  background: var(--color-sage);
+}
+.vn-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 5px 0 var(--color-cocoa);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 2.5px solid var(--color-cocoa);
+  border-radius: 14px;
+  background: var(--color-warm);
+  color: var(--color-cocoa);
+  box-shadow: 0 3px 0 var(--color-cocoa);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.icon-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-cocoa);
+}
+.icon-btn[aria-pressed="true"] {
+  background: var(--color-peach);
+}
+
+.paper {
+  background: var(--color-warm);
+  border: 3px solid var(--color-cocoa);
+  border-radius: 22px;
+  box-shadow: 0 6px 0 rgba(118, 87, 90, 0.35);
+}
+
+/* 대화창 */
+.dialog-box {
+  position: relative;
+  background: rgba(255, 252, 248, 0.96);
+  border: 3px solid var(--color-cocoa);
+  border-radius: 24px;
+  box-shadow: 0 6px 0 rgba(118, 87, 90, 0.35);
+  font-size: calc(1.05rem * var(--fs));
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.name-tab {
+  position: absolute;
+  top: -20px;
+  left: 18px;
+  padding: 2px 18px 3px;
+  border: 3px solid var(--color-cocoa);
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-deep);
+}
+
+/* ---------- 애니메이션 ---------- */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes bobSoft {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-3px) rotate(0.6deg); }
+}
+@keyframes drift {
+  from { transform: translateX(-20%); }
+  to { transform: translateX(120%); }
+}
+@keyframes shakeBox {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-7px) rotate(-0.4deg); }
+  30% { transform: translateX(6px) rotate(0.4deg); }
+  45% { transform: translateX(-5px); }
+  60% { transform: translateX(4px); }
+  80% { transform: translateX(-2px); }
+}
+@keyframes heartRise {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(var(--dx, 0), -180px) scale(1.15); opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+@keyframes arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes stamp {
+  0% { transform: scale(2.4) rotate(-14deg); opacity: 0; }
+  60% { transform: scale(0.95) rotate(-8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-8deg); opacity: 1; }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+@keyframes confettiFall {
+  0% { transform: translateY(-10vh) rotate(0); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0.9; }
+}
+@keyframes sheen {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+.anim-bob { animation: bob 3.2s ease-in-out infinite; }
+.anim-bob-soft { animation: bobSoft 3.8s ease-in-out infinite; }
+.anim-shake { animation: shakeBox 0.5s ease-in-out; }
+.anim-pulse { animation: pulse 1.1s ease-in-out infinite; }
+.anim-arrow { animation: arrow 0.9s ease-in-out infinite; }
+.anim-fadeup { animation: fadeUp 0.35s ease-out both; }
+.anim-pop { animation: pop 0.35s ease-out both; }
+
+/* 애니메이션 감소 */
+[data-reduce="true"] *,
+[data-reduce="true"] *::before,
+[data-reduce="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* 스크롤바 */
+.soft-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-peach) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.selectable {
+  user-select: text;
+  -webkit-user-select: text;
+}

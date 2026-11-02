@@ -1,0 +1,162 @@
+import { build, N, S, Y } from '../build'
+
+/** EPISODE 04. 언니, 손 좀 줘봐요 */
+export const ep4 = build(4, [
+  N('복숭아를 사서 돌아오는 길. 해가 기울기 시작했고, 봉지에서 새어 나온 단내가 걸음마다 따라왔다.', {
+    bg: 'sunset',
+    s: 'smile',
+    y: 'smile',
+    card: { title: 'EPISODE 04', sub: '언니, 손 좀 줘봐요' },
+  }),
+  S('복숭아 냄새 진짜 좋다. 영아, 너도 나지? 벌써 달아.', { s: 'excited' }),
+  Y('네, 걷는 내내 나요.', { y: 'smile' }),
+  S('아까 하나 먹을 걸 그랬나?', { s: 'smile' }),
+  Y('언니, 가게에서 이미 한 입 얻어먹었잖아요.', { y: 'laugh' }),
+  S('그건 시식이고, 이건 진짜 먹는 거고.', { s: 'sly' }),
+  N('저녁 바람이 불어서 머리카락이 눈앞으로 흘러내렸다. 두 손은 복숭아 봉지가 차지하고 있었다.', { y: 'smile' }),
+  S('가만 있어봐.', { s: 'tender' }),
+  N('언니가 걸음을 멈추고 내 머리카락을 귀 뒤로 넘겨주었다. 손끝이 귓가를 스쳤다.', {
+    id: 'e4_hair',
+    s: 'tender',
+    y: 'flutter',
+    effects: { heart: 10, collect: ['hair'], fall: true },
+    rush: { next: 'e4_rush' },
+  }),
+  S('바람이 심하네. 이제 됐다.', { s: 'smile' }),
+  Y('…고마워요.', { y: 'shy', next: 'e4_road' }),
+
+  // 급발진: 머리카락
+  Y('언니, 나한테 이렇게 하지 마요.', { id: 'e4_rush', y: 'rush', fx: 'shake' }),
+  S('왜? 싫어?', { s: 'sly' }),
+  Y('좋아서 그러죠!', { y: 'rush', effects: { heart: 10, collect: ['rush'], fall: true, flags: ['rushHair'] } }),
+  S('그럼 더 해줘야겠네.', { s: 'sly' }),
+  N('말문이 막혔다. 언니는 정말로 내 머리를 한 번 더 쓸어 넘겼다. 이미 정리된 머리를.', { y: 'flustered', next: 'e4_road' }),
+
+  N('길가로 차가 한 대 지나갔다. 언니가 아무렇지 않게 내 어깨를 자기 쪽으로 당겼다.', { id: 'e4_road', s: 'smile' }),
+  S('이쪽으로 걸어.', { s: 'smile' }),
+  Y('…언니는 이런 거 다 어디서 배웠어요?', { y: 'flustered' }),
+  S('뭘?', { s: 'surprised' }),
+  Y('아니에요.', { y: 'shy' }),
+  S('얘가 또 이상한 소리 하네.', { s: 'laugh' }),
+  S('근데 봉지 무겁지? 이리 줘, 내가 들게.', { s: 'smile' }),
+  N('나는—', {
+    id: 'e4_bag',
+    choices: [
+      { text: '"괜찮아요, 안 무거워요."', next: 'e4_bag1' },
+      { text: '"그럼 언니, 어깨 좀 빌려줘요."', next: 'e4_bag2', effects: { heart: 10, flags: ['shoulder'], fall: true } },
+      { text: '봉지를 건네고, 대신 언니 소매를 잡는다.', next: 'e4_bag3', effects: { heart: 5 } },
+    ],
+  }),
+  Y('괜찮아요, 안 무거워요.', { id: 'e4_bag1', y: 'smile' }),
+  S('그래? 그럼 같이 들자. 내가 반대쪽 잡을게.', { s: 'sly' }),
+  N('봉지를 사이에 두고 걷는 길이 어쩐지 아까보다 길게 느껴졌다.', { next: 'e4_thought' }),
+  S('어깨? 어깨는 왜?', { id: 'e4_bag2', s: 'surprised' }),
+  Y('그냥요. 걷다가 조금 기대고 싶어서요.', { y: 'shy' }),
+  S('얼마든지.', { s: 'tender' }),
+  N('언니의 팔이 내 어깨 위로 올라왔다. 조금 무거웠고, 많이 따뜻했고, 복숭아 향이 났다.', { y: 'flutter', next: 'e4_thought' }),
+  S('소매? 손 아니고?', { id: 'e4_bag3', s: 'laugh' }),
+  Y('…소매부터요.', { y: 'shy' }),
+  S('단계별로 가는구나. 좋아.', { s: 'sly' }),
+  N('소매 끝을 쥔 손가락이 괜히 간지러웠다. 언니는 모르는 척 속도를 줄였다.', { y: 'flutter', next: 'e4_thought' }),
+  N('언니는 모든 걸 너무 자연스럽게 한다. 그게 문제다. 나는 그 자연스러움에 매번 새로 걸려 넘어진다.', {
+    id: 'e4_thought',
+    y: 'flustered',
+    thought: {
+      who: 'young',
+      id: 'e4_young',
+      lines: [
+        '길을 모르는 사람이, 도로 쪽에서는 항상 내 바깥쪽에 선다.',
+        '머리카락이 날리면 먼저 알아챈다. 신발끈도, 약 시간도, 복숭아 취향도.',
+        '정작 제일 중요한 건 하나도 모르면서.',
+        '…내가 지금 이 손으로 무슨 생각을 하고 있는지 같은 거.',
+      ],
+    },
+  }),
+  N('봉지를 든 손이 비어 있었다면 좋았을 거라고, 나는 생각했다.', {
+    id: 'e4_choice',
+    y: 'shy',
+    choices: [
+      {
+        text: '"언니, 손 좀 줘봐요."',
+        next: 'e4_a',
+        effects: { heart: 20, flags: ['handHeld', 'youngFirstHand'], collect: ['firstHand', 'rush'], fall: true },
+      },
+      {
+        text: '아무 말 없이 걷는다. (손만 자꾸 내려다본다)',
+        next: 'e4_b',
+        effects: { heart: 15, flags: ['handHeld'], fall: true },
+      },
+      {
+        text: '언니에게 가까이 다가간다.',
+        next: 'e4_c',
+        special: true,
+        require: { minHeart: 60 },
+        effects: { heart: 20, flags: ['handHeld'], collect: ['sinaeFlustered'], fall: true },
+      },
+      {
+        text: '"성시내."',
+        next: 'e4_d',
+        special: true,
+        require: { minHeart: 80 },
+        effects: { heart: 20, flags: ['handHeld'], collect: ['fullName', 'sinaeFlustered', 'rush'], fall: true },
+      },
+    ],
+  }),
+
+  // a. 영이 먼저
+  S('손? 왜?', { id: 'e4_a', s: 'surprised' }),
+  N('나는 대답 대신 언니의 손을 잡았다. 언니는 놀라지도 않고, 손가락을 하나씩 맞물렸다.', { y: 'rush', fx: 'shake' }),
+  S('이렇게?', { s: 'sly' }),
+  Y('……', { y: 'flustered' }),
+  S('네가 잡았잖아.', { s: 'laugh' }),
+  Y('아니, 그렇게까지 하라는 건 아니었는데.', { y: 'flustered' }),
+  S('그럼 놓을까?', { s: 'sly' }),
+  Y('아니요!', { y: 'rush' }),
+  N('언니가 웃었다. 잡은 손에 힘이 아주 조금 더 들어왔다.', { s: 'tender' }),
+  S('알았어. 안 놓을게.', { s: 'tender', next: 'e4_join' }),
+
+  // b. 시내가 먼저
+  S('왜 말이 없어?', { id: 'e4_b', s: 'smile' }),
+  Y('…아니에요. 그냥 걷고 있어요.', { y: 'shy' }),
+  S('손.', { s: 'sly' }),
+  Y('네?', { y: 'flustered' }),
+  S('손 줘. 아까부터 잡고 싶은 얼굴이던데.', { s: 'sly' }),
+  Y('그, 그런 얼굴 아닌데요.', { y: 'flustered' }),
+  S('그래?', { s: 'laugh' }),
+  N('그러면서 언니는 내 손을 잡았다. 봉지를 반대쪽 손으로 옮기느라 한 번 휘청하면서.', { y: 'flutter' }),
+  S('…사실은 내가 잡고 싶었던 걸지도.', { s: 'shy' }),
+  Y('방금 뭐라고 했어요?', { y: 'flustered' }),
+  S('아무 말도 안 했는데?', { s: 'shy', next: 'e4_join' }),
+
+  // c. 가까이 (특별)
+  N('나는 한 걸음, 언니 쪽으로 다가갔다. 어깨가 닿을 만큼.', { id: 'e4_c', y: 'rush', fx: 'shake' }),
+  S('영아? 영아, 너무 가까운데…', { s: 'surprised' }),
+  Y('알아요.', { y: 'rush' }),
+  S('알면서 왜…', { s: 'shy' }),
+  Y('언니도 아까 가까이 왔잖아요. 머리 넘겨줄 때.', { y: 'rush' }),
+  S('그건 달라. 머리 정리하는 거랑 이건…', { s: 'shy' }),
+  N('언니가 말끝을 흐렸다. 이렇게 말이 안 끝나는 언니는 처음이었다. 귀가 새빨갰다.', { y: 'flutter' }),
+  S('…가자. 가면서 얘기하자.', { s: 'shy' }),
+  N('그러면서도 언니는 내 손을 먼저 찾아 잡았다. 도망가는 사람의 걸음은 아니었다.', { s: 'shy', y: 'flutter', next: 'e4_join' }),
+
+  // d. 성시내 (특별)
+  Y('성시내.', { id: 'e4_d', y: 'rush', fx: 'shake' }),
+  S('…풀네임?', { s: 'surprised' }),
+  Y('손 잡아요. 지금.', { y: 'rush' }),
+  S('…네.', { s: 'shy' }),
+  S('아니, 왜 존댓말이 나오지. 응, 잡을게.', { s: 'surprised' }),
+  N('언니가 내 손을 잡았다. 두 손가락이 어색하게 겹쳤다가, 곧 제자리를 찾았다. 언니의 손바닥이 조금 축축했다. 나만 떨리는 게 아니었다.', {
+    y: 'flutter',
+    s: 'shy',
+  }),
+  Y('언니도 떨려요?', { y: 'tender' }),
+  S('…아니거든.', { s: 'shy', next: 'e4_join' }),
+
+  N('두 사람의 손이 맞잡힌 채로 해가 한 뼘 더 내려갔다.', { id: 'e4_join', s: 'smile', y: 'tender', fx: 'glow' }),
+  S('저기, 복숭아가 하나 모자란 것 같은데?', { s: 'surprised' }),
+  Y('언니가 가면서 먹는다고 아까 하나 드셨잖아요.', { y: 'laugh' }),
+  S('아, 내 뱃속에 있구나.', { s: 'laugh' }),
+  Y('언니는 진짜…', { y: 'laugh' }),
+  S('진짜 뭐?', { s: 'sly' }),
+  Y('…진짜 귀여워요.', { y: 'tender', next: 'e5_start' }),
+])
